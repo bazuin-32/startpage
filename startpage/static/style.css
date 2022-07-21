@@ -33,7 +33,17 @@ nav > ul {
 
 nav > ul > li {
 	display: inline-block;
-	margin: 0.3rem;
+	margin: 0.2rem;
+    padding: 0.5rem 1rem;
+    color: var(--fg-color);
+
+    background-color: #282828;
+
+    border-radius: 0.4rem;
+}
+
+nav > ul > li > a {
+    color: inherit;
 }
 
 .main-content-container {

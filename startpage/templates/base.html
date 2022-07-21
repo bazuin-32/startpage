@@ -2,11 +2,15 @@
 
 <title>{% block title %}{% endblock %}</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 <nav>
 	<ul>
 		{% if g.user %}
-			<li><span class="user">{{ g.user['username'] }}</span></li>
+			<li>
+				<span class="user-icon"><i class="fa-regular fa-user" aria-hidden="true"></i></span>
+				<span class="username">{{ g.user['username'] }}</span>
+			</li>
 			<li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
 		{% else %}
 			<li><a href="{{ url_for('auth.login') }}">Login</a></li>
