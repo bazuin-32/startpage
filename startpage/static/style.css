@@ -7,7 +7,7 @@
 :root {
     --bg-color: #282828cc;
     --fg-color: #ebdbb2;
-    --fg2-color: #ebdbb255;
+    --fg2-color: #ebdbb288;
     --list-id-fg-color: #8b7b52;
 }
 
@@ -17,7 +17,6 @@ html, body {
 }
 
 body {
-    background: url('https://www.nps.gov/common/uploads/grid_builder/yell/crop16_9/347E8F88-1DD8-B71B-0BC8E8BFD3B3F6D6.jpg?width=950&quality=90&mode=crop') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -67,6 +66,8 @@ nav > ul > li > a {
 
     margin: auto;
     padding: 0;
+
+    border-radius: 0.4rem;
 }
 
 .main-content {
@@ -120,6 +121,11 @@ nav > ul > li > a {
 
 .main-content > .list-container > ol > li {
     list-style: none;
+}
+
+.main-content > .list-container > ol > li::marker {
+    content: counter(list-counter)"\a0\a0";
+    color: var(--fg2-color);
 }
 
 .main-content > .list-container > ol > li > span.id {
