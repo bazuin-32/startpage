@@ -1,0 +1,4 @@
+include startpage/schema.sql
+graft startpage/static
+graft startpage/templates
+global-exclude *.pyc
