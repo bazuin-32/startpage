@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ g.user['username'] }}@start:~{% endblock %}
+
+{% block content %}
+	<div class="main-content-container">
+		<div class="main-content input-container">
+			<label for="main-input-box" class="prompt">$</label>
+			<input type="text" class="input-box" name="main-input-box" id="main-input-box">
+		</div>
+
+		<div class="main-content">
+			<div class="list-container freq-visited-container">
+				<h1>Frequently Visited</h1>
+
+				<ol class="freq-visited">
+					{% for item in freq_visited %}
+						<li>
+							{{ item.query }}
+						</li>
+					{% endfor %}
+				</ol>
+			</div>
+
+			<div class="list-container history-container">
+				<h1>History</h1>
+
+				<ol class="history">
+					{% for item in history %}
+						<li>
+							{{ item.query }}
+						</li>
+					{% endfor %}
+				</ol>
+			</div>
+		</div>
+	</div>
+{% endblock %}
