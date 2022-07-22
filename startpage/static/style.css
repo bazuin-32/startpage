@@ -95,8 +95,10 @@ nav > ul > li > a {
 }
 
 .login-container > form > .submit {
+    padding: 5px 10px;
     border: 1px solid var(--fg2-color);
     border-radius: 0.4rem;
+
     background-color: var(--bg-color);
 }
 

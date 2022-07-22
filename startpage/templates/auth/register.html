@@ -3,13 +3,19 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-	<form method="post">
-		<label for="username">Username</label>
-		<input name="username" id="username" type="text">
+	<div class="main-content-container login-container">
+		<form method="post">
+			<label for="username">Username</label>
+			<input class="input-box" name="username" id="username" type="text">
 
-		<label for="password">Password</label>
-		<input name="password" id="password" type="password">
+			<label for="password">Password</label>
+			<input class="input-box" name="password" id="password" type="password">
 
-		<input type="submit" value="Register">
-	</form>
+			{% for message in get_flashed_messages() %}
+				<div class="flash">{{ message }}</div>
+			{% endfor %}
+
+			<input class="submit" type="submit" value="Register">
+		</form>
+	</div>
 {% endblock %}

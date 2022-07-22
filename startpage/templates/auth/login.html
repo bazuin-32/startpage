@@ -8,12 +8,8 @@
 			<label for="username">Username</label>
 			<input class="input-box" name="username" id="username" type="text">
 
-			<br>
-
 			<label for="password">Password</label>
 			<input class="input-box" name="password" id="password" type="password">
-
-			<br>
 
 			{% for message in get_flashed_messages() %}
 				<div class="flash">{{ message }}</div>
