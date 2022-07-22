@@ -35,10 +35,18 @@ def go():
 	# add the query to the history db
 	db = get_db()
 
-	db.execute(
-		"INSERT INTO history (user_id, query) VALUES (?, ?)",
-		(g.user['id'], query)
-	)
+	try:
+		db.execute(
+			"INSERT INTO history (user_id, query) VALUES (?, ?)",
+			(g.user['id'], query)
+		)
+	except db.IntegrityError:
+		# the query was done before, so we update the count rather
+		# than adding a new record
+		db.execute(
+			"UPDATE history SET count = count + 1 WHERE user_id = ? AND query = ?",
+			(g.user['id'], query)
+		)
 
 	db.commit()
 
@@ -46,7 +54,7 @@ def go():
 	# if the query is a valid domain or ip address
 	if re.match(r'^(http|https)://', query):
 		return redirect(query)
-	elif re.match(r'^(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}$', query):
+	elif re.match(r'^(www\.)?([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}$', query):
 		return redirect('https://' + query)
 	elif re.match(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$', query):
 		return redirect('https://' + query)
