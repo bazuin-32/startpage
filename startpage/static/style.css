@@ -87,9 +87,16 @@ nav > ul > li > a {
     font-size: 2rem;
 }
 
-.input-container > .prompt {
+.input-container .prompt {
     margin-right: 0.5rem;
     margin-bottom: 3px; /* to account for .input-box border-bottom */
+}
+
+.input-container > form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .input-box {
@@ -121,6 +128,7 @@ nav > ul > li > a {
 
 .main-content > .list-container > ol > li {
     list-style: none;
+    counter-increment: list-counter;
 }
 
 .main-content > .list-container > ol > li::marker {
