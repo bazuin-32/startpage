@@ -17,7 +17,7 @@ def index():
 	db = get_db()
 
 	history = db.execute(
-		"SELECT * FROM history WHERE user_id = ? ORDER BY last_access DESC", (g.user['id'],)
+		"SELECT * FROM history WHERE user_id = ? ORDER BY last_access ASC", (g.user['id'],)
 	).fetchall()
 
 	freq_visited = db.execute(
@@ -44,7 +44,7 @@ def go():
 		# the query was done before, so we update the count rather
 		# than adding a new record
 		db.execute(
-			"UPDATE history SET count = count + 1 WHERE user_id = ? AND query = ?",
+			"UPDATE history SET count = count + 1, last_access = CURRENT_TIMESTAMP WHERE user_id = ? AND query = ?",
 			(g.user['id'], query)
 		)
 
