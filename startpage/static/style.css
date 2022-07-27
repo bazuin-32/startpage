@@ -151,12 +151,13 @@ nav > ul > li > a {
     outline: none;
 
     border-bottom: 3px solid var(--fg2-color);
-
     border-radius: 2px;
+    transition: 0.4s;
 }
 
 .input-box:focus {
     border-color: var(--fg-color);
+    transition: 0.4s;
 }
 
 .main-content > .list-container > ol {

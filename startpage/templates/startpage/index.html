@@ -7,7 +7,8 @@
 		<div class="main-content input-container">
 			<form action="{{ url_for('startpage.go') }}" method="post">
 				<label for="query" class="prompt">$</label>
-				<input type="text" class="input-box" name="query" id="query">
+				<input type="text" class="input-box" name="query" id="query" autofocus>
+				<span class="focused-border"></span>
 			</form>
 		</div>
 
