@@ -9,6 +9,7 @@
     --fg-color: #ebdbb2;
     --fg2-color: #ebdbb288;
     --list-id-fg-color: #8b7b52;
+    --form-label-fg-color: #bbab82;
 }
 
 html, body {
@@ -79,21 +80,22 @@ nav > ul > li > a {
 }
 
 .login-container > form > * {
-    font-size: 1.2em;
-    height: 2em;
+    font-size: 1.3em;
 
-    margin: 1rem 0;
+    margin: 0;
 
     color: var(--fg-color);
 }
 
 .login-container > form > label {
-    margin-bottom: 0;
-    padding-bottom: 0;
+    font-size: 1.1em;
+    position: relative;
+    top: 0.5rem;
+    color: var(--form-label-fg-color);
 }
-.login-container > form > input {
-    margin-top: 0;
-    padding-top: 0;
+
+.login-container > form > .inner-input-container {
+    margin-bottom: 2rem;
 }
 
 .login-container > form > .submit {
@@ -109,6 +111,9 @@ nav > ul > li > a {
     font-size: 1rem;
 }
 
+.login-container > form {
+    width: 40rem;
+}
 
 .main-content {
     padding: 1rem;

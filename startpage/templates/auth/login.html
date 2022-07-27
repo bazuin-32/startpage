@@ -6,10 +6,16 @@
 	<div class="main-content-container login-container">
 		<form method="post">
 			<label for="username">Username</label>
-			<input class="input-box" name="username" id="username" type="text">
+			<div class="inner-input-container">
+				<input class="input-box" name="username" id="username" type="text" autocomplete="username">
+				<span class="focused-border"></span>
+			</div>
 
 			<label for="password">Password</label>
-			<input class="input-box" name="password" id="password" type="password">
+			<div class="inner-input-container">
+				<input class="input-box" name="password" id="password" type="password" autocomplete="current-password">
+				<span class="focused-border"></span>
+			</div>
 
 			{% for message in get_flashed_messages() %}
 				<div class="flash">{{ message }}</div>
