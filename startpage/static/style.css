@@ -133,6 +133,15 @@ nav > ul > li > a {
 }
 
 .input-container > form {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.inner-input-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -150,15 +159,31 @@ nav > ul > li > a {
     border: none;
     outline: none;
 
-    border-bottom: 3px solid var(--fg2-color);
+    border-bottom: 2px solid var(--fg2-color);
     border-radius: 2px;
-    transition: 0.4s;
 }
 
-.input-box:focus {
+.input-box ~ .focused-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--fg-color);
+    border-radius: 2px;
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.input-box:focus ~ .focused-border {
+    left: 0;
+    width: 100%;
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* .input-box:focus {
     border-color: var(--fg-color);
     transition: 0.4s;
-}
+} */
 
 .main-content > .list-container > ol {
     display: flex;
