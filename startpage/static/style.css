@@ -211,3 +211,27 @@ nav > ul > li > a {
     margin-right: 1em;
     color: var(--list-id-fg-color);
 }
+
+.query-suggestions {
+    display: none; /* will be unhidden in js */
+    position: absolute;
+    top: 100%;
+    
+    width: 100%;
+    height: fit-content;
+    max-height: 300%;
+    
+    background-color: var(--bg-color);
+    backdrop-filter: blur(5px);
+    
+    border: 1px solid var(--fg2-color);
+    border-radius: 2px;
+    border-top: none;
+
+    overflow-y: auto;
+}
+
+.query-suggestions > option {
+    border: 1px dashed var(--fg2-color);
+    font-size: 1rem;
+}

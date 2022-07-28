@@ -8,8 +8,13 @@
 			<form action="{{ url_for('startpage.go') }}" method="post">
 				<label for="query" class="prompt">$</label>
 				<div class="inner-input-container">
-					<input type="text" class="input-box" name="query" id="query" autocomplete="off" autofocus>
+					<input type="text" class="input-box" name="query" id="query" role="combobox" list="" autocomplete="off" autofocus>
 					<span class="focused-border"></span>
+					<datalist class="query-suggestions" role="listbox">
+						<option value="thing1">thing1</option>
+						<option value="thing2">thing2</option>
+						<option value="thing3">thing3</option>
+					</datalist>
 				</div>
 			</form>
 		</div>
