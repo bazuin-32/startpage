@@ -2,8 +2,15 @@ import os
 
 from flask import Flask
 
+from werkzeug.middleware.proxy_fix import ProxyFix
+
 def create_app(test_config = None) -> Flask:
 	app = Flask(__name__, instance_relative_config=True)
+
+	app.wsgi_app = ProxyFix(
+			app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+	)
+
 	app.config.from_mapping(
 		SECRET_KEY='dev',
 		DATABASE=os.path.join(app.instance_path, 'startpage.sqlite'),
