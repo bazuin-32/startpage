@@ -5,13 +5,13 @@ query_input.addEventListener("keyup", () => {
 	const query = query_input.value;
 
 	if (query.length < 1) {
-		list.style.display = "none";
+		list.classList.remove("shown");
 		return;
 	}
 
-	list.style.display = "block";
+	list.classList.add("shown");
 });
 
 query_input.addEventListener("focusout", () => {
-	list.style.display = "none";
+	list.classList.remove("shown");
 });
