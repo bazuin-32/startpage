@@ -215,7 +215,7 @@ nav > ul > li > a {
 .query-suggestions {
     display: block;
     position: absolute;
-    top: calc(100% + 2px);
+    top: 90%;
     
     width: 100%;
     height: fit-content;
@@ -237,6 +237,7 @@ nav > ul > li > a {
 
 .query-suggestions.shown {
     display: block;
+    top: calc(100% + 2px);
 
     color: inherit;
     background: var(--bg-color);
@@ -252,8 +253,10 @@ nav > ul > li > a {
 .query-suggestions > option {
     border: none;
     font-size: 1rem;
+
+    padding: 0.5rem 1rem;
 }
 
 .query-suggestions.shown > option {
-    border: 1px dashed var(--fg2-color);
+    border: 1px solid var(--fg2-color);
 }
