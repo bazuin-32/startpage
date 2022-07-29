@@ -1,7 +1,15 @@
 const query_input = document.getElementById("query");
 const list = document.getElementsByClassName("query-suggestions")[0];
 
+let block_suggestion_change = false;
+let selection_index = -1;
+
 const generate_suggestions = () => {
+	if (block_suggestion_change) {
+		block_suggestion_change = false;
+		return;
+	}
+
 	const query = query_input.value.toLowerCase().trim();
 
 	if (query.length < 1) {
@@ -35,6 +43,17 @@ const generate_suggestions = () => {
 
 query_input.addEventListener("keyup", generate_suggestions);
 query_input.addEventListener("focus", generate_suggestions);
+query_input.addEventListener("keydown", (e) => {
+	if (e.key === "ArrowDown") {
+		selection_index = (selection_index + 1) % list.children.length;
+		block_suggestion_change = true;
+		query_input.value = list.children[selection_index].innerText;
+	} else if (e.key === "ArrowUp") {
+		selection_index = (selection_index - 1 + list.children.length) % list.children.length;
+		block_suggestion_change = true;
+		query_input.value = list.children[selection_index].innerText;
+	}
+});
 
 query_input.addEventListener("focusout", () => {
 	list.classList.remove("shown");
