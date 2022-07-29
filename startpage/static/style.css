@@ -6,6 +6,7 @@
 
 :root {
     --bg-color: #282828cc;
+    --bg2-color: #484848cc;
     --fg-color: #ebdbb2;
     --fg2-color: #ebdbb288;
     --list-id-fg-color: #8b7b52;
@@ -261,4 +262,14 @@ nav > ul > li > a {
 
 .query-suggestions.shown > option {
     border: 1px solid var(--fg2-color);
+
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.query-suggestions.shown > option:hover,
+.query-suggestions.shown > option:focus,
+.query-suggestions.shown > option.selected {
+    background-color: var(--bg2-color);
+
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }

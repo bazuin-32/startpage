@@ -45,11 +45,25 @@ query_input.addEventListener("keyup", generate_suggestions);
 query_input.addEventListener("focus", generate_suggestions);
 query_input.addEventListener("keydown", (e) => {
 	if (e.key === "ArrowDown") {
+		// remove selection from before
+		if (selection_index > -1) {
+			list.children[selection_index].classList.remove("selected");
+		}
+
 		selection_index = (selection_index + 1) % list.children.length;
+		list.children[selection_index].classList.add("selected");
+		
 		block_suggestion_change = true;
 		query_input.value = list.children[selection_index].innerText;
 	} else if (e.key === "ArrowUp") {
+		// remove selection from before
+		if (selection_index > -1) {
+			list.children[selection_index].classList.remove("selected");
+		}
+
 		selection_index = (selection_index - 1 + list.children.length) % list.children.length;
+		list.children[selection_index].classList.add("selected");
+
 		block_suggestion_change = true;
 		query_input.value = list.children[selection_index].innerText;
 	}
