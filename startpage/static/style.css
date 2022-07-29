@@ -215,11 +215,11 @@ nav > ul > li > a {
 .query-suggestions {
     display: block;
     position: absolute;
-    top: 90%;
+    top: 80%;
     
     width: 100%;
     height: fit-content;
-    max-height: 300%;
+    max-height: 0;
     
     background: rgba(0, 0, 0, 0);
     color:rgba(0, 0, 0, 0);
@@ -232,12 +232,14 @@ nav > ul > li > a {
 
     z-index: -1;
 
-    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .query-suggestions.shown {
     display: block;
     top: calc(100% + 2px);
+
+    max-height: 300%;
 
     color: inherit;
     background: var(--bg-color);
@@ -247,7 +249,7 @@ nav > ul > li > a {
 
     z-index: auto;
 
-    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .query-suggestions > option {
