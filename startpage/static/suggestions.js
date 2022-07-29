@@ -2,7 +2,7 @@ const query_input = document.getElementById("query");
 const list = document.getElementsByClassName("query-suggestions")[0];
 
 query_input.addEventListener("keyup", () => {
-	const query = query_input.value;
+	const query = query_input.value.toLowerCase().trim();
 
 	if (query.length < 1) {
 		list.classList.remove("shown");
@@ -16,7 +16,7 @@ query_input.addEventListener("keyup", () => {
 		document.getElementsByClassName("history")[0]
 		.getElementsByTagName("li")
 	)
-		.filter(li => li.innerText.toLowerCase().includes(query.toLowerCase()))
+		.filter(li => li.innerText.toLowerCase().includes(query))
 		.map(li => li.innerText)
 		.forEach(suggestion => {
 			const option = document.createElement("option");
