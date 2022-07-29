@@ -1,7 +1,7 @@
 const query_input = document.getElementById("query");
 const list = document.getElementsByClassName("query-suggestions")[0];
 
-query_input.addEventListener("keyup", () => {
+const generate_suggestions = () => {
 	const query = query_input.value.toLowerCase().trim();
 
 	if (query.length < 1) {
@@ -31,7 +31,10 @@ query_input.addEventListener("keyup", () => {
 		});
 
 	list.classList.add("shown");
-});
+}
+
+query_input.addEventListener("keyup", generate_suggestions);
+query_input.addEventListener("focus", generate_suggestions);
 
 query_input.addEventListener("focusout", () => {
 	list.classList.remove("shown");
