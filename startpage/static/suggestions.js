@@ -22,7 +22,7 @@ query_input.addEventListener("keyup", () => {
 			const option = document.createElement("option");
 
 			option.innerText = suggestion;
-			option.addEventListener("click", () => {
+			option.addEventListener("mousedown", () => {
 				query_input.value = suggestion;
 				list.classList.remove("shown");
 			});
