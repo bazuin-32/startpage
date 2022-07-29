@@ -6,6 +6,7 @@
 
 :root {
     --bg-color: #282828cc;
+    --bg2-color: #484848cc;
     --fg-color: #ebdbb2;
     --fg2-color: #ebdbb288;
     --list-id-fg-color: #8b7b52;
@@ -210,4 +211,65 @@ nav > ul > li > a {
 .main-content > .list-container > ol > li > span.id {
     margin-right: 1em;
     color: var(--list-id-fg-color);
+}
+
+.query-suggestions {
+    display: block;
+    position: absolute;
+    top: 80%;
+    
+    width: 100%;
+    height: fit-content;
+    max-height: 0;
+    
+    background: rgba(0, 0, 0, 0);
+    color:rgba(0, 0, 0, 0);
+    
+    border: none;
+    border-radius: 2px;
+    border-top: none;
+
+    overflow-y: auto;
+
+    z-index: -1;
+
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.query-suggestions.shown {
+    display: block;
+    top: calc(100% + 2px);
+
+    max-height: 300%;
+
+    color: inherit;
+    background: var(--bg-color);
+    backdrop-filter: blur(5px);
+
+    border: 1px solid var(--fg2-color);
+
+    z-index: auto;
+
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.query-suggestions > option {
+    border: none;
+    font-size: 1rem;
+
+    padding: 0.5rem 1rem;
+}
+
+.query-suggestions.shown > option {
+    border: 1px solid var(--fg2-color);
+
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.query-suggestions.shown > option:hover,
+.query-suggestions.shown > option:focus,
+.query-suggestions.shown > option.selected {
+    background-color: var(--bg2-color);
+
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
