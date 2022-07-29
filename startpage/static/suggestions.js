@@ -9,6 +9,27 @@ query_input.addEventListener("keyup", () => {
 		return;
 	}
 
+
+	list.innerHTML = "";
+
+	Array.from(
+		document.getElementsByClassName("history")[0]
+		.getElementsByTagName("li")
+	)
+		.filter(li => li.innerText.toLowerCase().includes(query.toLowerCase()))
+		.map(li => li.innerText)
+		.forEach(suggestion => {
+			const option = document.createElement("option");
+
+			option.innerText = suggestion;
+			option.addEventListener("click", () => {
+				query_input.value = suggestion;
+				list.classList.remove("shown");
+			});
+
+			list.appendChild(option);
+		});
+
 	list.classList.add("shown");
 });
 
